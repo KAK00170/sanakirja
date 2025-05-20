@@ -14,7 +14,7 @@ def käännös(sanakirja, käännöskieli):
     toistomäärä = 0
     while True:
         if käännöskieli == "1":
-            sana = random.choice(list(sanakirja.keys()))
+            sana = random.choice(list(sanakirja.keys()))  #random valinta
             oikea_vastaus = sanakirja[sana]
             vastaus = input(f"Mikä on sanan {sana} suomennos?")
             if vastaus == oikea_vastaus:
@@ -23,7 +23,7 @@ def käännös(sanakirja, käännöskieli):
                 print(f"Väärin, oikea vastaus on: {oikea_vastaus}")
         elif käännöskieli == "2":
             sana = random.choice(list(sanakirja.values()))
-            oikea_vastaus = [e for e, s in sanakirja.items() if s == sana][0]
+            oikea_vastaus = [e for e, s in sanakirja.items() if s == sana][0] #e = englanti arvo - s = suomi arvo
             vastaus = input(f"Mikä on sanan {sana} käännös englanniksi? ")
             if vastaus == oikea_vastaus:
                 print("Oikein!")
@@ -33,7 +33,7 @@ def käännös(sanakirja, käännöskieli):
             print("Virheellinen valinta.")
             break
         toistomäärä += 1
-        if toistomäärä % 5 == 0:
+        if toistomäärä % 5 == 0: #Kysytään viiden kysymyksen jälkeen halutaanko jatkaa.
             jatka = input("Haluatko jatkaa? kyllä/ei: ")
             if jatka != "kyllä":
                 print("Kiitos!")
